@@ -2,19 +2,15 @@ import React from 'react'
 
 const signup = () => {
   
-    const [firstName, setFirstName] = useState(null);
-    const [lastName, setLastName] = useState(null);
+    const [username, setUsername] = useState(null);
     const [email, setEmail] = useState(null);
     const [password,setPassword] = useState(null);
-    const [confirmPassword,setConfirmPassword] = useState(null);
+    const [mobile,setMobile] = useState(null);
 
     const handleInputChange = (e) => {
         const {id , value} = e.target;
-        if(id === "firstName"){
-            setFirstName(value);
-        }
-        if(id === "lastName"){
-            setLastName(value);
+        if(id === "username"){
+            setUsername(value);
         }
         if(id === "email"){
             setEmail(value);
@@ -22,27 +18,49 @@ const signup = () => {
         if(id === "password"){
             setPassword(value);
         }
-        if(id === "confirmPassword"){
-            setConfirmPassword(value);
+        if(id === "mobile"){
+            setMobile(value);
         }
 
     }
 
     const handleSubmit  = () => {
-        console.log(firstName,lastName,email,password,confirmPassword);
-    }
+        e.preventDefault();
+
+        const credentials = {
+          username,
+          password,
+          email,
+          mobile
+         };
+
+         try {
+            const response = fetch('http://localhost:5000/signup', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(credentials),
+            });
+
+            setEmail('');
+            setMobile('');
+            setPassword('');
+            setUsername('');
+        }catch (error) {
+            console.error('Error during signup:', error);
+          }
+        
+    };
 
     return(
         <div className="form">
             <div className="form-body">
                 <div className="username">
-                    <label className="form__label" for="firstName">First Name </label>
-                    <input className="form__input" type="text" value={firstName} onChange = {(e) => handleInputChange(e)} id="firstName" placeholder="First Name"/>
+                    <label className="form__label" for="firstName">user Name </label>
+                    <input className="form__input" type="text" value={username} onChange = {(e) => handleInputChange(e)} id="username" placeholder="user Name"/>
                 </div>
-                <div className="lastname">
-                    <label className="form__label" for="lastName">Last Name </label>
-                    <input  type="text" name="" id="lastName" value={lastName}  className="form__input" onChange = {(e) => handleInputChange(e)} placeholder="LastName"/>
-                </div>
+                
                 <div className="email">
                     <label className="form__label" for="email">Email </label>
                     <input  type="email" id="email" className="form__input" value={email} onChange = {(e) => handleInputChange(e)} placeholder="Email"/>
@@ -51,9 +69,9 @@ const signup = () => {
                     <label className="form__label" for="password">Password </label>
                     <input className="form__input" type="password"  id="password" value={password} onChange = {(e) => handleInputChange(e)} placeholder="Password"/>
                 </div>
-                <div className="confirm-password">
-                    <label className="form__label" for="confirmPassword">Confirm Password </label>
-                    <input className="form__input" type="password" id="confirmPassword" value={confirmPassword} onChange = {(e) => handleInputChange(e)} placeholder="Confirm Password"/>
+                <div className="mobile">
+                    <label className="form__label" for="mobile">mobile no </label>
+                    <input className="form__input" type="number" id="mobile" value={mobile} onChange = {(e) => handleInputChange(e)} placeholder="mobile"/>
                 </div>
             </div>
             <div class="footer">
