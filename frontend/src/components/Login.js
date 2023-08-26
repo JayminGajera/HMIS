@@ -17,12 +17,12 @@ function Login() {
 
     // Create a credentials object with email and password
     const credentials = {
-      email: email,
-      password: password,
+       email,
+       password,
     };
 
     try {
-      const response = await fetch('http://localhost:3000/login', {
+      const response = await fetch('http://localhost:5000/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -30,11 +30,9 @@ function Login() {
         body: JSON.stringify(credentials),
       });
 
-      if (response.ok) {
-        // Handle successful login
-      } else {
-        // Handle login error
-      }
+      setEmail('');
+      setPassword('');
+
     } catch (error) {
       console.error('Error during login:', error);
     }
