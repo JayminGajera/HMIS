@@ -8,4 +8,4 @@ const signup = () => {
   )
 }
 
-export default signup
+export default signup;
