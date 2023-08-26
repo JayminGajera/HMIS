@@ -5,13 +5,13 @@ import './navbar.css'
 const Navbar = () => {
   return (
     <div className='nav'>
-      <Link to={'/'}>
-        HIMS
+      <Link to={'/'} className='option'>
+       HIMS 
       </Link>
-      <Link to={'/login'}>
+      <Link to={'/login'} className='option'>
         Login
       </Link>
-      <Link to={'/signup'}>
+      <Link to={'/signup'} className='option'>
         signup
       </Link>
     </div>

@@ -13,5 +13,9 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-end;
-    gap:2rem;
+    gap:2rem; 
+}
+.option     {
+    text-decoration: none;
+    color: aliceblue;
 }
