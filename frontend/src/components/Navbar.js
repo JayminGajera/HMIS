@@ -8,6 +8,9 @@ const Navbar = () => {
       <Link to={'/'}>
         HIMS
       </Link>
+      <Link to={'/login'}>
+        Login
+      </Link>
     </div>
   )
 }
