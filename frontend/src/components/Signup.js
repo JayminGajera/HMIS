@@ -36,7 +36,7 @@ const signup = () => {
          };
 
          try {
-            const response = fetch('http://localhost:5000/signup', {
+            const response =  fetch('http://localhost:5000/signup', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
