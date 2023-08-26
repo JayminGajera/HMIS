@@ -1,11 +1,12 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const {MONGODURL} = require('./config');
 
 const app = express();
 const port = 3000;
 
+app.use(express.json());
 // Connect to MongoDB
 mongoose.connect(MONGODURL, {
   useNewUrlParser: true,
@@ -19,8 +20,8 @@ mongoose.connect(MONGODURL, {
 });
 
 // Use body-parser to parse incoming requests
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+
 
 // Import routes
 const loginRoute = require('./routes/login');
