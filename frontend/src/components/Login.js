@@ -22,19 +22,20 @@ function Login() {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/login', {
+      // Send a POST request to /api/login
+      const response = await fetch('/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
+        // Set the credentials in the request body
         body: JSON.stringify(credentials),
       });
 
-      setEmail('');
-      setPassword('');
-
+      const data = await response.json();
+      console.log(data);
     } catch (error) {
-      console.error('Error during login:', error);
+      console.error(error);
     }
   };
 
