@@ -35,25 +35,23 @@ const signup = () => {
           mobile
          };
 
-         try {
-            const response =  await fetch('http://localhost:5000/signup', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify(credentials),
-            });
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    try{
+        const responce = await fetch("http://localhost:5000/register",{
+            method:  'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(formData),
 
-            setEmail('');
-            setMobile('');
-            setPassword('');
-            setUsername('');
-            const data =
-        }catch (error) {
-            console.error('Error during signup:', error);
-          }
-        
-    };
+        });
+        const data =await responce.json();
+        console.log(data);
+    }catch(error){
+        console.log('error while register');
+    }
+  };
 
     return(
         <div className="form">
