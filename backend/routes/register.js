@@ -3,7 +3,15 @@ const User = require('../models/user');
 const { sendOTP } = require('../middleware/sendOTP');
 const { generateOTP } = require('../middleware/generateOTP');
 const { temporaryUsers } = require('../middleware/temporaryUsers');
+const cors = require('cors'); // Import the cors middleware
 
+// Use the cors middleware to allow all origins
+router.use(cors(
+     {
+          origin: '*',
+          methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+     },
+));
 // Register endpoint
 router.post('/register', async (req, res) => {
      try {
