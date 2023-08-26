@@ -15,7 +15,8 @@ router.post('/register', async (req, res) => {
           }
 
           const otp = generateOTP();
-          await sendOTP(email, otp);
+          // await sendOTP(email, otp);
+          console.log('otp', otp);
 
           // Store user details temporarily
           temporaryUsers[email] = { username, password, otp, mobile };
