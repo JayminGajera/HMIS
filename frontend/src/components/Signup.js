@@ -36,7 +36,7 @@ const signup = () => {
          };
 
          try {
-            const response = await fetch('http://localhost:5000/signup', {
+            const response =  await fetch('http://localhost:5000/signup', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -48,6 +48,8 @@ const signup = () => {
             setMobile('');
             setPassword('');
             setUsername('');
+            const data = response.json;
+            console.log(data);
         }catch (error) {
             console.error('Error during signup:', error);
           }
