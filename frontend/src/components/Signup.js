@@ -20,8 +20,8 @@ function SignupForm() {
   const handleSubmit = async(e) => {
     e.preventDefault();
     try{
-        const responce = await fetch("http://localhost:5000/signup",{
-            method:  'post',
+        const responce = await fetch("http://localhost:5000/register",{
+            method:  'POST',
             headers:{
                 'content-type':'application/json'
             },
