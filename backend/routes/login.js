@@ -14,15 +14,18 @@ router.post('/login', async (req, res) => {
                return;
           }
 
-          const hashedPassword = crypto
-               .createHash('sha256')
-               .update(password)
-               .digest('hex');
-
+          // const hashedPassword = crypto
+          //      .createHash('sha256')
+          //      .update(password)
+          //      .digest('hex');
+          const hashedPassword = password;
+          console.log("Login hash done");
           if (foundUser.password === hashedPassword) {
+               console.log("Entered login if block");
                const token = generateToken({ email });
                res.json({ message: 'Login successful', token });
           } else {
+               console.log("Entered login else block");
                res.status(401).json({ error: 'Incorrect password' });
           }
      } catch (error) {
