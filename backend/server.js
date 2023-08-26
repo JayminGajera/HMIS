@@ -2,6 +2,10 @@ const express = require('express');
 // const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const {MONGODURL} = require('./config');
+const cors = require('cors');
+
+// use cors for all requests
+app.use(cors());
 
 const app = express();
 const port = 5000;
