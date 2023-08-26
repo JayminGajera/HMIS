@@ -28,7 +28,7 @@ function SignupForm() {
             body:JSON.stringify(formData),
 
         });
-        const data =await responce.json();
+        const data = await responce.json();
         console.log(data);
     }catch(error){
         console.log('error while register');
