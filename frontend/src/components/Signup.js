@@ -50,6 +50,7 @@ const signup = () => {
             setUsername('');
             const data = response.json;
             console.log(data);
+            
         }catch (error) {
             console.error('Error during signup:', error);
           }
