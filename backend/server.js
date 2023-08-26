@@ -1,13 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-
+const {MONGODURL} = require('./config');
 
 const app = express();
 const port = 3000;
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/logiApi', {
+mongoose.connect(MONGODURL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
