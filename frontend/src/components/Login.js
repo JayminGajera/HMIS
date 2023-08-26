@@ -12,14 +12,14 @@ function Login() {
     setPassword(e.target.value);
   };
 
+  // Create a credentials object with email and password
+  const credentials = {
+    email,
+    password,
+ };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Create a credentials object with email and password
-    const credentials = {
-       email,
-       password,
-    };
 
     try {
       const response = await fetch('http://localhost:5000/login', {
@@ -30,12 +30,15 @@ function Login() {
         body: JSON.stringify(credentials),
       });
 
-      setEmail('');
-      setPassword('');
+     
 
     } catch (error) {
-      console.error('Error during login:', error);
+      console.log('error while login');
+      
     }
+
+    setEmail('');
+    setPassword('');
   };
 
   return (
