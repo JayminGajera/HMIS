@@ -40,3 +40,10 @@ body{
     justify-content: space-between;
     align-items: center;
 }
+
+.login input{
+    height: 40px;
+    font-size: 18px;
+    color: black;
+    margin-top: 1rem;
+}
